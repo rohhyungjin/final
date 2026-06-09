@@ -45,7 +45,6 @@ function drawLobbyScreen() {
     }
   }
 
-  // ⭐️ 추가: 방장 전용 "혼자서 모두 조종하기" 버튼 (Y축 75% 지점에 배치)
   if (partyIsHost()) {
     let soloBtnW = 350;
     let soloBtnH = 50;
@@ -100,7 +99,6 @@ function mousePressedLobby(mx, my) {
     }
   }
 
-  // ⭐️ 추가: 방장 전용 솔로 버튼 클릭 체크
   if (partyIsHost()) {
     let soloBtnW = 350;
     let soloBtnH = 50;
