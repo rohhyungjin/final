@@ -39,7 +39,6 @@ function drawStageSelectScreen() {
       let bx = startX + col * (btnW + gapX);
       let by = startY + row * (btnH + gapY);
 
-      // ⭐️ 수정: 서버에 값이 없으면 기본값 1을 사용하도록 '|| 1' 추가
       let maxStage = sharedSignal.maxUnlockedMazeStage || 1;
       let isUnlocked = i <= maxStage;
 
