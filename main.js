@@ -129,7 +129,7 @@ function preload() {
   successSound = loadSound('success_sound.mp3');
   itemSound = loadSound('item_sound.mp3');
 
-  partyConnect("wss://demoserver.p5party.org", "don'tBlameOthers", "main_room_v2");
+  partyConnect("wss://demoserver.p5party.org", "don'tBlameOthers", "blame_room_v4");
   
 
   sharedPos = partyLoadShared("position");
