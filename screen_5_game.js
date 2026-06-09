@@ -170,7 +170,6 @@ function drawGameScreen() {
     let hitboxX = 8 / windowWidth; 
     let hitboxY = 8 / windowHeight;
 
-    // 👉 충돌 판정 엔진: 악어가 뜯어낸 타일도 동적으로 벽(1)으로 인식하게 합니다.
     let checkCell = (px, py) => {
       let c = Math.floor(px * COLS);
       let r = Math.floor(py * ROWS);
@@ -312,7 +311,6 @@ function drawGameScreen() {
         }
       }
       
-      // 👉 악어 AI 로직 (숨어있다가 맵의 맨 윗줄 제외 0 부분에 랜덤 파괴)
       if (m.type === "CROCODILE") {
         m.timer += 1;
         // 1. 대기 상태 (1.5초)
@@ -357,7 +355,6 @@ function drawGameScreen() {
         }
       }
       
-      // 👉 세이렌 AI 로직 (범위 내 진입 후 일정 프레임 이상 유지될 때에만 흡입 기능 작동)
       if (m.type === "SIREN") {
         if (m.pullTimer === undefined) m.pullTimer = 0;
 
@@ -468,12 +465,12 @@ function drawGameScreen() {
       if (m.type === "CENTIPEDE") {
         m.timer += 1;
 
-        // ⭐️ 수정: 매 프레임이 아니라 5프레임에 한 번씩만 꼬리 위치를 저장합니다. (마디 간격 벌림)
+        // 수정: 매 프레임이 아니라 5프레임에 한 번씩만 꼬리 위치를 저장합니다. (마디 간격 벌림)
         if (!m.body) m.body = []; 
         if (m.timer % 5 === 0) {
           m.body.unshift({ px: m.px, py: m.py });
           
-          // ⭐️ 마디 개수를 25개로 늘립니다. (간격 확대 + 마디 증가 = 엄청나게 길어짐!)
+          // 마디 개수를 25개로 늘립니다. (간격 확대 + 마디 증가 = 엄청나게 길어짐!)
           if (m.body.length > 25) {
             m.body.pop(); 
           }
@@ -679,7 +676,6 @@ function drawGameScreen() {
       }
     }
     
-    // 👉 악어 렌더링 (타일 파괴 시각 효과 반영)
     if (m.type === "CROCODILE") {
       let bx = m.biteC * cellW;
       let by = m.biteR * cellH;
@@ -778,7 +774,7 @@ function drawGameScreen() {
     }
     /*
     if (m.type === "CENTIPEDE") {                                                       //lllllpppppp
-      // ⭐️ 추가: 몸통(꼬리) 그리기
+      // 추가: 몸통(꼬리) 그리기
       if (m.body) {
         for (let i = 0; i < m.body.length; i++) {
           let b = m.body[i];
